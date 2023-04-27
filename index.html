@@ -16,13 +16,13 @@
                 let screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
                 let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
                 this.add.text(screenCenterX, screenCenterY, 'Click to begin.').setOrigin(0.5);
-                this.input.on('pointerdown', () => this.scene.start('body'));
+                this.input.on('pointerdown', () => this.scene.start('logoscene'));
             }
         }
 
         class LogoScene extends Phaser.Scene {
             constructor() {
-                super('body');
+                super('logoscene');
             }
             preload(){
                 this.load.path = "./assets/";
@@ -36,24 +36,46 @@
                 530,
                 200,
                 "woogywoogaming",
+                // added timer. code from https://www.thepolyglotdeveloper.com/2020/09/switch-between-scenes-phaser-game/
+                this.time.addEvent({
+                delay: 1000,
+                loop: false,
+                callback: () => {
+                    this.scene.start('mainmenu');
+                }
+            })
             )
             }
         }
 
         class MainMenu extends Phaser.Scene {
             constructor() {
-                super('body');
+                super('mainmenu');
             }
             preload(){
                 this.load.path = "./assets/";
                 this.load.image("ThreadsofFate", "ThreadsofFate.png") 
+                this.load.image("westernnations", "westernnations.png")
             }
             create() {
                 this.imageObject = this.add.image(
-                530,
-                200,
+                93,
+                100,
                 "ThreadsofFate",
             )
+                this.imageObject.setScale(0.55)
+
+                this.imageObject = this.add.image(
+                615,
+                320,
+                "westernnations",
+            )
+                this.imageObject.setScale(0.42)
+
+                this.add.text(20, 150, 'Continue');
+                this.add.text(20, 200, "New Game");
+                this.add.text(20, 250, "Load Game");
+                this.add.text(20, 300, "Options");
             }
         }
 
