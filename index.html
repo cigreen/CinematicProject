@@ -76,14 +76,38 @@
                 this.add.text(20, 200, "New Game");
                 this.add.text(20, 250, "Load Game");
                 this.add.text(20, 300, "Options");
+                this.input.on('pointerdown', () => this.scene.start('prologue'));
             }
         }
-
+        class Prologue extends Phaser.Scene {
+            constructor() {
+                super('prologue');
+            }
+            preload() {
+                this.load.path = "./assets/";
+                this.load.image("parchment", "parchment.png")
+            }
+            create() {
+                this.imageObject = this.add.image(
+                    1024/2,
+                    292,
+                    "parchment",
+            )
+                this.imageObject.setScale(3.01)
+                let box = this.add.text(25, 100,
+`A new era has begun. One of peace. For 100 long years, the people of Ingolfheim have warred against each other, spilling blood over resources, money, and land. This brutal, bloody conquest culminated in the loss of innumerable casualties. With devastating losses on all sides, the war came to a standstill, and the four countries entered a tentative and tense standoff. However, this all changed when the new Regent Lord of the Dynasty, Elduin Ulahana, held a summit with King Edward Pathage III, ending the war. 
+	The cheers of hundreds of thousands of people flooded the continent. It was finally over. Now officially known as The Western Nations, the people of this new alliance rejoice at the prospect of a peaceful era after a generation of misery. However, evil lurks deep beneath the surface, waiting to strike at any moment. One such individual plans his rise to power, and will stop at nothing to achieve his goals. Peace is a mistake. A mistake that must be corrected.
+…However, this is not his story. Nestled in the Greenslade Woods lies the quaint town of Garen’s Well. Created roughly 60 years ago, the town was founded as a checkpoint during the Kingdom’s march onto Sovereignty territory. Now, Garen’s Well is a bustling safe haven for all walks of life. More importantly, the first annual Festival of Flowers is being held in this very town to rejoice the end of the long campaign of war! It is in this town, where five individuals, all hailing from different parts of the continent, will meet. Today, their destinies merge. This is their story.
+`
+                );
+                box.setWordWrapWidth(1000);
+            }
+        }
         new Phaser.Game({
             width: 1024,
             height: 768,
             backgroundColor: 0x8e7cc3,
-            scene: [Intro, LogoScene, MainMenu],
+            scene: [Intro, LogoScene, MainMenu, Prologue],
         });
     </script>
 </head>
