@@ -20,7 +20,7 @@
             }
         }
 
-        class Body extends Phaser.Scene {
+        class LogoScene extends Phaser.Scene {
             constructor() {
                 super('body');
             }
@@ -40,11 +40,28 @@
             }
         }
 
+        class MainMenu extends Phaser.Scene {
+            constructor() {
+                super('body');
+            }
+            preload(){
+                this.load.path = "./assets/";
+                this.load.image("ThreadsofFate", "ThreadsofFate.png") 
+            }
+            create() {
+                this.imageObject = this.add.image(
+                530,
+                200,
+                "ThreadsofFate",
+            )
+            }
+        }
+
         new Phaser.Game({
             width: 1024,
             height: 768,
             backgroundColor: 0x8e7cc3,
-            scene: [Intro, Body],
+            scene: [Intro, LogoScene, MainMenu],
         });
     </script>
 </head>
