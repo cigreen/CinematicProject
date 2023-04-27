@@ -24,10 +24,19 @@
             constructor() {
                 super('body');
             }
+            preload(){
+                this.load.path = "./assets/";
+                this.load.image("woogywoogaming", "woogywoogaming.png")
+            }
             create() {
                 let screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
                 let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
-                this.add.text(screenCenterX, screenCenterY, 'I am the body scene').setOrigin(0.5);
+                this.add.text(screenCenterX, screenCenterY, 'woogywoo gaming').setOrigin(0.5);
+                this.imageObject = this.add.image(
+                530,
+                200,
+                "woogywoogaming",
+            )
             }
         }
 
