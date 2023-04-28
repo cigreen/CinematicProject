@@ -102,7 +102,9 @@
                 );
                 box.setTint(0x000000)
                 box.setWordWrapWidth(1000);
+                // THIS CODE DOESNT WORK STILL. FIX IT.
                 this.add.rectangle(950, 700, 100, 50, 0xffaf7a);
+                this.input.on('pointerdown', () => this.scene.start('choosecharacter'));
             }
         }
         
@@ -111,7 +113,12 @@
                 super('choosecharacter');
             }
             preload() {
-                
+                this.load.path = "./assets/";
+                this.load.image("alder", "alder.png") 
+                this.load.image("ib", "ib.png")
+                this.load.image("kizo", "kizo.png")
+                this.load.image("ragash", "ragash.png")
+                this.load.image("viktor", "viktor.png")
             }
             create() {
           
