@@ -42,12 +42,13 @@
                 this.cameras.main.fadeIn(1000, 0, 0, 0);
                 let screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
                 let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
-                this.add.text(screenCenterX, screenCenterY, 'woogywoo gaming').setOrigin(0.5);
+                let gamign = this.add.text(screenCenterX, screenCenterY + 160, 'woogywoo gaming', {fontSize: 30}).setOrigin(0.5);
+                gamign.setTint(0x000000)
                 let maintheme = this.sound.add('thepyre');
                 maintheme.play();
                 this.imageObject = this.add.image(
                 530,
-                200,
+                300,
                 "woogywoogaming",
                 // added timer. code from https://www.thepolyglotdeveloper.com/2020/09/switch-between-scenes-phaser-game/
                 this.time.addEvent({
@@ -98,8 +99,8 @@
                 //this.input.on('pointerdown', () => this.scene.start('prologue'));
                 this.input.on('pointerdown', () => {
                     selectsound.play();
-                    this.cameras.main.fadeOut(1000, 0,0,0);
-                    this.time.delayedCall(1000, () => this.scene.start('prologue'));
+                    this.cameras.main.fadeOut(2000, 0,0,0);
+                    this.time.delayedCall(3000, () => this.scene.start('prologue'));
                 });
             }
         }
@@ -120,17 +121,24 @@
                     320,
                     "parchment",
             )
+                let titlepog = this.add.text(390, 50, "The State of the World", {fontSize: 25});
+                titlepog.setTint(0x000000)
                 this.imageObject.setScale(3.30)
                 let box = this.add.text(25, 100,
 `A new era has begun. One of peace. For 100 long years, the people of Ingolfheim have warred against each other, spilling blood over resources, money, and land. This brutal, bloody conquest culminated in the loss of innumerable casualties. With devastating losses on all sides, the war came to a standstill, and the four countries entered a tentative and tense standoff. However, this all changed when the new Regent Lord of the Dynasty, Elduin Ulahana, held a summit with King Edward Pathage III, ending the war. 
-	The cheers of hundreds of thousands of people flooded the continent. It was finally over. Now officially known as The Western Nations, the people of this new alliance rejoice at the prospect of a peaceful era after a generation of misery. However, evil lurks deep beneath the surface, waiting to strike at any moment. One such individual plans his rise to power, and will stop at nothing to achieve his goals. Peace is a mistake. A mistake that must be corrected.
+
+The cheers of hundreds of thousands of people flooded the continent. It was finally over. Now officially known as The Western Nations, the people of this new alliance rejoice at the prospect of a peaceful era after a generation of misery. However, evil lurks deep beneath the surface, waiting to strike at any moment. One such individual plans his rise to power, and will stop at nothing to achieve his goals. Peace is a mistake. A mistake that must be corrected.
+
 …However, this is not his story. Nestled in the Greenslade Woods lies the quaint town of Garen’s Well. Created roughly 60 years ago, the town was founded as a checkpoint during the Kingdom’s march onto Sovereignty territory. Now, Garen’s Well is a bustling safe haven for all walks of life. More importantly, the first annual Festival of Flowers is being held in this very town to rejoice the end of the long campaign of war! It is in this town, where five individuals, all hailing from different parts of the continent, will meet. Today, their destinies merge. This is their story.
-`
+`, {fontSize: 20}
                 );
                 box.setTint(0x000000)
                 box.setWordWrapWidth(1000);
                 // THIS CODE DOESNT WORK STILL. FIX IT.
-                this.add.rectangle(950, 700, 100, 50, 0xffaf7a);
+                //this.add.rectangle(950, 700, 100, 50, 0xffaf7a);
+                this.add.rectangle(912, 600, 150, 50, 0xffaf7a);
+                let beginpog = this.add.text (892, 590, "Continue")
+                beginpog.setTint(0x000000)
                 this.input.on('pointerdown', () => {
                     selectsound.play();
                     this.cameras.main.fadeOut(1000, 0,0,0);
@@ -179,7 +187,7 @@
 
         new Phaser.Game({
             width: 1024,
-            height: 768,
+            height: 640,
             backgroundColor: 0x8e7cc3,
             scene: [Intro, LogoScene, MainMenu, Prologue, ChooseCharacter],
         });
