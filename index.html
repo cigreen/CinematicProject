@@ -11,12 +11,21 @@
             constructor() {
                 super('intro');
             }
+            preload(){
+                this.load.path = "./assets/";
+                this.load.audio('select', "soundscmpm120.wav")
+            }
             create() {
             // center the text to the middle of the screen. code from https://www.stephengarside.co.uk/blog/phaser-3-center-text-in-middle-of-screen/
                 let screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
                 let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
+                let selectsound = this.sound.add('select')
                 this.add.text(screenCenterX, screenCenterY, 'Click to begin.').setOrigin(0.5);
-                this.input.on('pointerdown', () => this.scene.start('logoscene'));
+                this.input.on('pointerdown', () => {
+                    selectsound.play();
+                    this.cameras.main.fadeOut(1000, 0,0,0);
+                    this.time.delayedCall(1000, () => this.scene.start('logoscene'));
+                });
             }
         }
 
@@ -30,6 +39,7 @@
                 this.load.audio('thepyre', 'ThePyre.wav');
             }
             create() {
+                this.cameras.main.fadeIn(1000, 0, 0, 0);
                 let screenCenterX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
                 let screenCenterY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
                 this.add.text(screenCenterX, screenCenterY, 'woogywoo gaming').setOrigin(0.5);
@@ -41,13 +51,15 @@
                 "woogywoogaming",
                 // added timer. code from https://www.thepolyglotdeveloper.com/2020/09/switch-between-scenes-phaser-game/
                 this.time.addEvent({
-                delay: 1000,
+                delay: 2000,
                 loop: false,
                 callback: () => {
-                    this.scene.start('mainmenu');
+                    this.cameras.main.fadeOut(1000, 0,0,0);
+                    //this.scene.start('mainmenu');
                 }
             })
             )
+            this.time.delayedCall(4000, () => this.scene.start('mainmenu'));
             }
         }
 
@@ -59,8 +71,12 @@
                 this.load.path = "./assets/";
                 this.load.image("ThreadsofFate", "ThreadsofFate.png") 
                 this.load.image("westernnations", "westernnations.png")
+                this.load.audio('select', "soundscmpm120.wav")
+                
             }
             create() {
+                let selectsound = this.sound.add('select')
+                this.cameras.main.fadeIn(1000, 0, 0, 0);
                 this.imageObject = this.add.image(
                 93,
                 100,
@@ -79,7 +95,12 @@
                 this.add.text(20, 200, "New Game");
                 this.add.text(20, 250, "Load Game");
                 this.add.text(20, 300, "Options");
-                this.input.on('pointerdown', () => this.scene.start('prologue'));
+                //this.input.on('pointerdown', () => this.scene.start('prologue'));
+                this.input.on('pointerdown', () => {
+                    selectsound.play();
+                    this.cameras.main.fadeOut(1000, 0,0,0);
+                    this.time.delayedCall(1000, () => this.scene.start('prologue'));
+                });
             }
         }
         class Prologue extends Phaser.Scene {
@@ -89,8 +110,11 @@
             preload() {
                 this.load.path = "./assets/";
                 this.load.image("parchment", "parchment.png")
+                this.load.audio('select', "soundscmpm120.wav")
             }
             create() {
+                let selectsound = this.sound.add('select')
+                this.cameras.main.fadeIn(1000, 0, 0, 0);
                 this.imageObject = this.add.image(
                     1024/2,
                     320,
@@ -107,7 +131,11 @@
                 box.setWordWrapWidth(1000);
                 // THIS CODE DOESNT WORK STILL. FIX IT.
                 this.add.rectangle(950, 700, 100, 50, 0xffaf7a);
-                this.input.on('pointerdown', () => this.scene.start('choosecharacter'));
+                this.input.on('pointerdown', () => {
+                    selectsound.play();
+                    this.cameras.main.fadeOut(1000, 0,0,0);
+                    this.time.delayedCall(1000, () => this.scene.start('choosecharacter'));
+                });
             }
         }
         
@@ -124,7 +152,7 @@
                 this.load.image("viktor", "viktor.png")
             }
             create() {
-
+                this.cameras.main.fadeIn(1000, 0, 0, 0);
                 this.imageObject = this.add.image(112, 300, "kizo")
                 this.imageObject.setScale(0.25)
 
@@ -141,7 +169,7 @@
                 this.imageObject.setScale(0.40)
 
                 this.add.rectangle(512, 500, 150, 50, 0xd8bfd8);
-                let beginpog = this.add.text (487, 490, "Begin")
+                let beginpog = this.add.text (477, 490, "The End")
                 beginpog.setTint(0x000000)
 
                 let meetTheCast = this.add.text (487, 120, "Meet the Cast")
