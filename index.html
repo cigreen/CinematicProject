@@ -121,7 +121,28 @@
                 this.load.image("viktor", "viktor.png")
             }
             create() {
-          
+
+                this.imageObject = this.add.image(112, 300, "kizo")
+                this.imageObject.setScale(0.25)
+
+                this.imageObject = this.add.image(312, 300, "viktor")
+                this.imageObject.setScale(0.30)
+
+                this.imageObject = this.add.image(512, 300, "ragash")
+                this.imageObject.setScale(0.30)
+
+                this.imageObject = this.add.image(712, 300, "alder")
+                this.imageObject.setScale(0.30)
+
+                this.imageObject = this.add.image(912, 300, "ib")
+                this.imageObject.setScale(0.40)
+
+                this.add.rectangle(512, 500, 150, 50, 0xd8bfd8);
+                let beginpog = this.add.text (487, 490, "Begin")
+                beginpog.setTint(0x000000)
+
+                let meetTheCast = this.add.text (487, 120, "Meet the Cast")
+                meetTheCast.setTint(0x000000)
             }
         }
 
