@@ -5,6 +5,16 @@ class Intro extends Phaser.Scene {
     preload(){
         this.load.path = "./assets/";
         this.load.audio('select', "soundscmpm120.wav")
+        this.load.image("woogywoogaming", "woogywoogaming.png")
+        this.load.audio('thepyre', 'ThePyre.wav');
+        this.load.image("ThreadsofFate", "ThreadsofFate.png") 
+        this.load.image("westernnations", "westernnations.png")
+        this.load.image("parchment", "parchment.png")
+        this.load.image("alder", "alder.png") 
+        this.load.image("ib", "ib.png")
+        this.load.image("kizo", "kizo.png")
+        this.load.image("ragash", "ragash.png")
+        this.load.image("viktor", "viktor.png")
     }
     create() {
     // center the text to the middle of the screen. code from https://www.stephengarside.co.uk/blog/phaser-3-center-text-in-middle-of-screen/
@@ -23,11 +33,6 @@ class Intro extends Phaser.Scene {
 class LogoScene extends Phaser.Scene {
     constructor() {
         super('logoscene');
-    }
-    preload(){
-        this.load.path = "./assets/";
-        this.load.image("woogywoogaming", "woogywoogaming.png")
-        this.load.audio('thepyre', 'ThePyre.wav');
     }
     create() {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
@@ -57,13 +62,6 @@ class LogoScene extends Phaser.Scene {
 class MainMenu extends Phaser.Scene {
     constructor() {
         super('mainmenu');
-    }
-    preload(){
-        this.load.path = "./assets/";
-        this.load.image("ThreadsofFate", "ThreadsofFate.png") 
-        this.load.image("westernnations", "westernnations.png")
-        this.load.audio('select', "soundscmpm120.wav")
-        
     }
     create() {
         let selectsound = this.sound.add('select')
@@ -96,11 +94,6 @@ class MainMenu extends Phaser.Scene {
 class Prologue extends Phaser.Scene {
     constructor() {
         super('prologue');
-    }
-    preload() {
-        this.load.path = "./assets/";
-        this.load.image("parchment", "parchment.png")
-        this.load.audio('select', "soundscmpm120.wav")
     }
     create() {
         let selectsound = this.sound.add('select')
@@ -137,14 +130,6 @@ The cheers of hundreds of thousands of people flooded the continent. It was fina
 class ChooseCharacter extends Phaser.Scene {
     constructor() {
         super('choosecharacter');
-    }
-    preload() {
-        this.load.path = "./assets/";
-        this.load.image("alder", "alder.png") 
-        this.load.image("ib", "ib.png")
-        this.load.image("kizo", "kizo.png")
-        this.load.image("ragash", "ragash.png")
-        this.load.image("viktor", "viktor.png")
     }
     create() {
         this.cameras.main.fadeIn(1000, 0, 0, 0);
