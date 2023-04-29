@@ -117,11 +117,11 @@ The cheers of hundreds of thousands of people flooded the continent. It was fina
         box.setTint(0x000000)
         box.setWordWrapWidth(1000);
         this.add.rectangle(912, 600, 150, 50, 0xffaf7a);
-        let beginpog = this.add.text (892, 590, "Continue")
+        let beginpog = this.add.text (878, 590, "Continue")
         beginpog.setTint(0x000000)
         this.input.on('pointerdown', () => {
             selectsound.play();
-            this.cameras.main.fadeOut(1000, 0,0,0);
+            this.cameras.main.fadeOut(2000, 0,0,0);
             this.time.delayedCall(1000, () => this.scene.start('choosecharacter'));
         });
     }
@@ -148,7 +148,7 @@ class ChooseCharacter extends Phaser.Scene {
         let ib = this.imageObject = this.add.image(912, 300, "ib")
         this.imageObject.setScale(0.40)
 
-        let meetTheCast = this.add.text (487, 120, "Meet the Cast")
+        let meetTheCast = this.add.text (427, 120, "Meet the Cast", {fontSize: 25})
         meetTheCast.setTint(0x000000)
 
         let endpog = this.add.rectangle(1025, 500, 150, 50, 0xd8bfd8);
@@ -164,7 +164,7 @@ class ChooseCharacter extends Phaser.Scene {
 
         this.add.tween({
             targets: beginpog,
-            x: 492,
+            x: 482,
             ease: 'power3',
             duration: 2000
         })
