@@ -11,4 +11,6 @@ Key requirements for this assignment:
 - **1+ fading animation**: Transitions between scenes.
 - **1+ object motion animation**: "The End" rectangle and words slide onto the screen from the right.
 
+Quick Note: Cinematic will be ready to go once the "Click to Begin" text shows up. In general, clicking is needed to progress the cinematic.
+
 Story and cinematic based on the Dungeons and Dragons game I’ve been running for my friends for almost 3 years now. Each character was created by each of them, and still played to this day. Special shoutout to them, the adventuring party known as “The Wingbois”.
