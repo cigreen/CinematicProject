@@ -161,27 +161,41 @@ The cheers of hundreds of thousands of people flooded the continent. It was fina
             }
             create() {
                 this.cameras.main.fadeIn(1000, 0, 0, 0);
-                this.imageObject = this.add.image(112, 300, "kizo")
+                let kizo = this.imageObject = this.add.image(112, 300, "kizo")
                 this.imageObject.setScale(0.25)
 
-                this.imageObject = this.add.image(312, 300, "viktor")
+                let viktor = this.imageObject = this.add.image(312, 300, "viktor")
                 this.imageObject.setScale(0.30)
 
-                this.imageObject = this.add.image(512, 300, "ragash")
+                let ragash = this.imageObject = this.add.image(512, 300, "ragash")
                 this.imageObject.setScale(0.30)
 
-                this.imageObject = this.add.image(712, 300, "alder")
+                let alder = this.imageObject = this.add.image(712, 300, "alder")
                 this.imageObject.setScale(0.30)
 
-                this.imageObject = this.add.image(912, 300, "ib")
+                let ib = this.imageObject = this.add.image(912, 300, "ib")
                 this.imageObject.setScale(0.40)
-
-                this.add.rectangle(512, 500, 150, 50, 0xd8bfd8);
-                let beginpog = this.add.text (477, 490, "The End")
-                beginpog.setTint(0x000000)
 
                 let meetTheCast = this.add.text (487, 120, "Meet the Cast")
                 meetTheCast.setTint(0x000000)
+
+                let endpog = this.add.rectangle(1025, 500, 150, 50, 0xd8bfd8);
+                let beginpog = this.add.text (1025, 490, "The End")
+                beginpog.setTint(0x000000)
+
+                this.add.tween({
+                    targets: endpog,
+                    x: 512,
+                    ease: 'power3',
+                    duration: 2000
+                })
+
+                this.add.tween({
+                    targets: beginpog,
+                    x: 492,
+                    ease: 'power3',
+                    duration: 2000
+                })
             }
         }
 
