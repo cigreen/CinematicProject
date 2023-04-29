@@ -56,7 +56,6 @@
                 loop: false,
                 callback: () => {
                     this.cameras.main.fadeOut(1000, 0,0,0);
-                    //this.scene.start('mainmenu');
                 }
             })
             )
@@ -96,7 +95,6 @@
                 this.add.text(20, 200, "New Game");
                 this.add.text(20, 250, "Load Game");
                 this.add.text(20, 300, "Options");
-                //this.input.on('pointerdown', () => this.scene.start('prologue'));
                 this.input.on('pointerdown', () => {
                     selectsound.play();
                     this.cameras.main.fadeOut(2000, 0,0,0);
@@ -134,8 +132,6 @@ The cheers of hundreds of thousands of people flooded the continent. It was fina
                 );
                 box.setTint(0x000000)
                 box.setWordWrapWidth(1000);
-                // THIS CODE DOESNT WORK STILL. FIX IT.
-                //this.add.rectangle(950, 700, 100, 50, 0xffaf7a);
                 this.add.rectangle(912, 600, 150, 50, 0xffaf7a);
                 let beginpog = this.add.text (892, 590, "Continue")
                 beginpog.setTint(0x000000)

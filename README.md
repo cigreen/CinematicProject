@@ -9,6 +9,6 @@ Key requirements for this assignment:
 - **1+ logotype**: "Threads of Fate" title. Title was created in cooltext.com.
 - **1+ multi-line text**: The prologue story paragraph.
 - **1+ fading animation**: Transitions between scenes.
-- **1+ object motion animation**: Character portraits slide onto the screen on the Meet the Cast Scene.
+- **1+ object motion animation**: "The End" rectangle and words slide onto the screen from the right.
 
 Story and cinematic based on the Dungeons and Dragons game I’ve been running for my friends for almost 3 years now. Each character was created by each of them, and still played to this day. Special shoutout to them, the adventuring party known as “The Wingbois”.
